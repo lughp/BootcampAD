@@ -1,0 +1,56 @@
+Comandos para usar no Hadoop
+
+diretório do Hadoop: /usr/local/hadoop
+
+excluir temp:
+/usr/local/hadoop/tmp$ sudo rm -r dfs
+/usr/local/hadoop/tmp$ sudo rm -r nm-local-dir
+
+formatar namenode:
+/usr/local/hadoop$ bin/hdfs namenode -format
+
+verificar programas java em execução:
+/usr/local/hadoop$ jps
+
+colocar no ar os serviços do Hadoop (5 serviços)
+/usr/local/hadoop$ sbin/start-all.sh
+
+consultar se os 5 serviços subiram:
+/usr/local/hadoop$ jps
+
+localhost:9870
+localhost:8088
+
+Consultar o HDFS
+/usr/local/hadoop$ bin/hdfs dfs -ls /
+
+Criar diretório no HDFS
+/usr/local/hadoop$ bin/hdfs dfs -mkdir /<NomeDoDiretório>
+/usr/local/hadoop$ bin/hdfs dfs -mkdir /igti
+/usr/local/hadoop$ bin/hdfs dfs -mkdir /igti/ecossistema
+
+Copiar arquivo para o HDFS
+/usr/local/hadoop$ bin/hdfs dfs -put /usr/local/hadoop/Dados/covidData.txt /igti/ecossistema
+
+Consultar arquivo no HDFS
+/usr/local/hadoop$ bin/hdfs dfs -ls /igti/ecossistema
+
+Mostrar o conteúdo do arquivo no HDFS
+/usr/local/hadoop$ bin/hdfs dfs -cat /igti/ecossistema/covidData.txt
+
+Excluir arquivo no HDFS
+/usr/local/hadoop$ bin/hdfs dfs -rmr /igti/ecossistema/covidData.txt
+
+Excluir diretório no HDFS
+/usr/local/hadoop$ bin/hdfs dfs -rmr /igti/ecossistema
+
+Parar o sistema Hadoop
+/usr/local/hadoop$ sbin/stop-all.sh
+
+Para compilar:
+/usr/local/hadoop$ ant -f /usr/local/hadoop/ExemploIGTI/ExemploIGTI.jar IGTI.ExemploIGTI
+/usr/local/hadoop$ ant -f ExemploIGTI/ExemploIGTI.jar IGTI.ExemploIGTI
+
+Para executar:
+/usr/local/hadoop$ /usr/local/hadoop/bin/hadoop jar /usr/local/hadoop/ExemploIGTI/ExemploIGTI.jar IGTI.ExemploIGTI
+/usr/local/hadoop$ bin/hadoop jar ExemploIGTI/ExemploIGTI.jar IGTI.ExemploIGTI
